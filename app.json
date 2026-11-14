@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "LOOPI",
+    "slug": "loopi",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "loopi",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#000000",
+    "ios": {
+      "icon": "./assets/expo.icon"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 76
+        }
+      ],
+      "expo-localization",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "LOOPI konumunu yalnızca bir ana yer eklemek istediğinde kullanır."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "LOOPI an çekmek için kameranı kullanır.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "LOOPI galeriden fotoğraf seçmen için fotoğraflarına erişir.",
+          "cameraPermission": "LOOPI fotoğraf çekmek için kameranı kullanır.",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false,
+      "reactCompiler": true
+    }
+  }
+}
