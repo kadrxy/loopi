@@ -208,11 +208,14 @@ export const tr = {
   visible_to: "Görebilenler: {{aud}}",
   your_moment: "Senin anın",
   moment_count: "{{n}} an",
+  moment_one: "1 an",
+  open_chat: "{{name}} ile sohbeti aç",
   not_found: "Bu an artık görüntülenemiyor.",
 
   // create
   who_sees: "Kim görsün?",
   people_count: "{{n}} kişi",
+  people_one: "1 kişi",
   cam_permission: "Foto çekmek için kamera izni gerekiyor.",
   cam_allow: "Kameraya izin ver",
   use_sample: "Örnek foto",

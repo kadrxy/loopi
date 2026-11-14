@@ -109,7 +109,7 @@ export function MapScreen({ withTabBar = true }: { withTabBar?: boolean }) {
                     </Text>
                   </View>
                   <Text style={styles.cardSub} numberOfLines={1}>
-                    {t('moment_count', { n: item.moments.length })} · {ago(latest.createdAt)}
+                    {item.moments.length === 1 ? t('moment_one') : t('moment_count', { n: item.moments.length })} · {ago(latest.createdAt)}
                   </Text>
                   <AvatarStack users={people} size={20} />
                 </View>

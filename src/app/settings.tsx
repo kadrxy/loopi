@@ -166,7 +166,12 @@ export default function SettingsScreen() {
               )
             }
           />
-          <Row icon="lock" title={t('blocked_list')} value={String(blockedCount || '')} onPress={() => router.push('/blocked')} />
+          <Row
+            icon="lock"
+            title={t('blocked_list')}
+            value={blockedCount ? String(blockedCount) : undefined}
+            onPress={() => router.push('/blocked')}
+          />
         </Section>
         {isMinor(me) && <Text style={styles.note}>{t('minor_note')}</Text>}
 
@@ -235,7 +240,7 @@ function Row({
         )}
       </View>
       {children}
-      {value && <Text style={styles.value}>{value}</Text>}
+      {value ? <Text style={styles.value}>{value}</Text> : null}
       {onPress && <Icon name="caretRight" size={15} color={colors.t3} />}
     </View>
   );

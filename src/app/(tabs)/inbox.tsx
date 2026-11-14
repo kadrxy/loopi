@@ -47,31 +47,33 @@ export default function Inbox() {
           const unread = item.msgs.some((m) => m.fromId !== meId && !m.read);
           const mineLast = item.last.fromId === meId;
           return (
-            <Pressable
-              onPress={() => router.push({ pathname: '/chat/[id]', params: { id: item.id } })}
-              style={({ pressed }) => [styles.row, pressed && { backgroundColor: 'rgba(255,255,255,0.04)' }]}
-              accessibilityRole="button"
-              accessibilityLabel={u?.name}>
+            <View style={styles.row}>
               <Pressable onPress={() => setPeek(item.id)} hitSlop={4} accessibilityRole="button" accessibilityLabel={u?.name}>
                 <Avatar user={u} size={52} ring={unread} />
               </Pressable>
-              <View style={{ flex: 1, gap: 2 }}>
-                <Text style={[styles.name, !unread && { fontFamily: font.medium }]} numberOfLines={1}>
-                  {u?.name}
-                </Text>
-                <View style={styles.previewRow}>
-                  {mineLast && !typing[item.id] && <Receipt status={item.last.status} size={15} />}
-                  {(item.last.replyToMomentId || item.last.image != null) && <Icon name="camera" size={13} color={colors.t3} />}
-                  <Text style={[styles.preview, unread && { color: colors.t2 }]} numberOfLines={1}>
-                    {typing[item.id] ? t('typing') : item.last.body || t('photo')}
+              <Pressable
+                onPress={() => router.push({ pathname: '/chat/[id]', params: { id: item.id } })}
+                style={({ pressed }) => [styles.open, pressed && { opacity: 0.6 }]}
+                accessibilityRole="button"
+                accessibilityLabel={t('open_chat', { name: u?.name ?? '' })}>
+                <View style={{ flex: 1, gap: 2 }}>
+                  <Text style={[styles.name, !unread && { fontFamily: font.medium }]} numberOfLines={1}>
+                    {u?.name}
                   </Text>
+                  <View style={styles.previewRow}>
+                    {mineLast && !typing[item.id] && <Receipt status={item.last.status} size={15} />}
+                    {(item.last.replyToMomentId || item.last.image != null) && <Icon name="camera" size={13} color={colors.t3} />}
+                    <Text style={[styles.preview, unread && { color: colors.t2 }]} numberOfLines={1}>
+                      {typing[item.id] ? t('typing') : item.last.body || t('photo')}
+                    </Text>
+                  </View>
                 </View>
-              </View>
-              <View style={{ alignItems: 'flex-end', gap: 6 }}>
-                <Text style={styles.time}>{ago(item.last.createdAt)}</Text>
-                {unread && <View style={styles.dot} />}
-              </View>
-            </Pressable>
+                <View style={{ alignItems: 'flex-end', gap: 6 }}>
+                  <Text style={styles.time}>{ago(item.last.createdAt)}</Text>
+                  {unread && <View style={styles.dot} />}
+                </View>
+              </Pressable>
+            </View>
           );
         }}
       />
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
   halo: { position: 'absolute', top: -130, alignSelf: 'center' },
   title: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 6 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingVertical: 10, minHeight: 72 },
+  open: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12, alignSelf: 'stretch' },
   name: { fontFamily: font.semibold, fontSize: 15, color: colors.text },
   previewRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   preview: { flex: 1, fontFamily: font.regular, fontSize: 13, color: colors.t3 },

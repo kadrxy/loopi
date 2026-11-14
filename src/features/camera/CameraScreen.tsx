@@ -122,7 +122,7 @@ export function CameraScreen({ active = true, onClose, onDone }: Props) {
           <Glass radius={radius.pill} style={styles.aud}>
             <Icon name={AUDIENCE_ICON[audience]} size={16} filled />
             <Text style={styles.audText}>{t(AUDIENCE_KEY[audience])}</Text>
-            <Text style={styles.audCount}>· {t('people_count', { n: reach })}</Text>
+            <Text style={styles.audCount}>· {reach === 1 ? t('people_one') : t('people_count', { n: reach })}</Text>
             <Icon name="caretDown" size={14} color={colors.t2} />
           </Glass>
         </Pressable>

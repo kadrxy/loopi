@@ -111,7 +111,7 @@ export default function Search() {
                       {p.name}
                     </Text>
                   </View>
-                  <Text style={styles.handle}>{t('moment_count', { n: p.moments.length })}</Text>
+                  <Text style={styles.handle}>{p.moments.length === 1 ? t('moment_one') : t('moment_count', { n: p.moments.length })}</Text>
                 </View>
                 <Icon name="caretRight" size={18} color={colors.t3} />
               </Pressable>
