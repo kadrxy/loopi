@@ -13,6 +13,8 @@ people through a feed, stories, a social map and messaging.**
 ![Tests](https://img.shields.io/badge/tests-62%20passing-000)
 ![License: MIT](https://img.shields.io/badge/license-MIT-000)
 
+**[Live demo →](https://kadrxy.github.io/social-mobile-app/)** <sub>(web build, best in your browser's phone view; use “Continue with Apple → Go to home” to skip sign-in)</sub>
+
 </div>
 
 > [!NOTE]
@@ -126,6 +128,7 @@ npx expo start
 
 - **Phone**: scan the QR code with [Expo Go](https://expo.dev/go) (iOS or Android).
 - **Browser**: press `w` for the web preview (use your browser's phone view).
+- **No setup**: try the [live web demo](https://kadrxy.github.io/social-mobile-app/).
 - **Signing in**: there is no backend, so any email works and **any 6-digit code** is accepted (it
   continues on its own). "Continue with Apple" also offers a temporary **Go to home** shortcut.
 
